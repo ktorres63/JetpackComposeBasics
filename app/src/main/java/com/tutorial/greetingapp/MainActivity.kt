@@ -27,7 +27,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Text("Hello world")
+            GreetingAppTheme {
+                Surface(modifier = Modifier.fillMaxSize()) {
+                    MessageCard(Message("Android", "Jetpack Compose"))
+                }
+            }
         }
     }
 }
@@ -59,9 +63,14 @@ fun MessageCard(msg: Message) {
 @Preview
 @Composable
 fun PreviewMessageCard() {
-    MessageCard(
-        msg = Message("Lexi", "Hey, take a look at Jetpack Compose, it's great!")
-    )
+    GreetingAppTheme {
+        Surface {
+            MessageCard(
+                msg = Message("Lexi", "Hey, take a look at Jetpack Compose, it's great!")
+            )
+        }
+    }
+
 
 }
 
